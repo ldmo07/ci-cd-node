@@ -10,4 +10,8 @@ const users = [
 app.get('/', (_req, res) => res.send('node-example v2'));
 app.get('/users', (_req, res) => res.json(users));
 
-app.listen(3000, '0.0.0.0', () => console.log('listening on 3000'));
+if (require.main === module) {
+  app.listen(3000, '0.0.0.0', () => console.log('listening on 3000'));
+}
+
+module.exports = app;
