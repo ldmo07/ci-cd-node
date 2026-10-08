@@ -27,3 +27,9 @@ test('GET /users devuelve la lista de usuarios', async () => {
   assert.strictEqual(users.length, 3);
   assert.ok(users.every((u) => u.id && u.name && u.email));
 });
+
+test('GET /health devuelve status ok', async () => {
+  const res = await fetch(`${base}/health`);
+  assert.strictEqual(res.status, 200);
+  assert.deepStrictEqual(await res.json(), { status: 'ok' });
+});

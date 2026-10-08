@@ -8,6 +8,7 @@ const users = [
 ];
 
 app.get('/', (_req, res) => res.send('node-example v2'));
+app.get('/health', (_req, res) => res.json({ status: 'ok' }));
 app.get('/users', (_req, res) => res.json(users));
 
 if (require.main === module) {
